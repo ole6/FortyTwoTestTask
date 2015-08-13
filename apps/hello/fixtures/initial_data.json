@@ -1,0 +1,15 @@
+[
+  {
+    "model": "hello.person",
+    "pk": 1,
+    "fields": {
+      "first_name": "Oleh",
+      "last_name": "Lytovchenko",
+      "birth": "26.06.1984",
+      "email": "lytowchenko@gmail.com",
+      "jabber": "lytovchenko@42cc.co",
+      "skype": "lytovchenkoo",
+      "site": "lytovchenko.com"
+    }
+  }
+]
