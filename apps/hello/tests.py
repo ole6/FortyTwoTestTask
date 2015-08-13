@@ -6,6 +6,7 @@ class HomeTests(TestCase):
 
     def test_home_template(self):
         """test home template"""
+
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
         self.assertTemplateUsed(response, 'base.html')
@@ -31,3 +32,10 @@ class HomeTests(TestCase):
         self.assertEqual(p.jabber, 'lytovchenko@42cc.co')
         self.assertEqual(p.skype, 'lytovchenkoo')
         self.assertEqual(p.site, 'lytovchenko.com')
+
+    def test_home_view(self):
+        """test home view"""
+
+        response = self.client.get('/')
+        person = Person.objects.all()[0]
+        self.assertEqual(person, response.context['person'])
