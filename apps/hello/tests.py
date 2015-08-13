@@ -17,6 +17,8 @@ class HomeTests(TestCase):
         self.assertInHTML(
             '<h1>42 Coffee Cups Test Assignment</h1>', response.content)
 
+        self.assertInHTML('<p>Oleh</p>', response.content)
+
     def test_person_model(self):
         """test Person model"""
 
