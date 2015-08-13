@@ -1,9 +1,16 @@
 from django.test import TestCase
 
-# Create your tests here.
 
+class HomeTests(TestCase):
 
-class SomeTests(TestCase):
-    def test_math(self):
-        "put docstrings in your tests"
-        assert(2 + 2 == 5)
+    def test_home_template(self):
+        "test home template"
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
+        self.assertTemplateUsed(response, 'base.html')
+        self.assertInHTML(
+            '<link href="/static/css/bootstrap.min.css" rel="stylesheet">',
+            response.content
+        )
+        self.assertInHTML(
+            '<h1>42 Coffee Cups Test Assignment</h1>', response.content)
